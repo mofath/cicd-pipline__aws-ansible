@@ -101,7 +101,7 @@ jobs:
           paths: [backend/node_modules]
           key: backend-deps
             
-  scan-frontend:
+  scan-backend:
     docker:
       - image: cimg/node:13.8.0
     steps:
@@ -115,17 +115,17 @@ jobs:
             npm install
             npm run audit --audit-level=critical
 
-  scan-backend:
+  scan-frontend:
     docker:
       - image: cimg/node:13.8.0
     steps:
       - checkout
       - restore_cache:
-          keys: [backend-deps]
+          keys: [frontend-deps]
       - run:
-          name: Backend Scan
+          name: frontend Scan
           command: |
-            cd backend
+            cd frontend
             npm install
             npm run audit --audit-level=critical
 
