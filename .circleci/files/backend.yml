@@ -4,7 +4,7 @@ Description: >
 Parameters:
   ID:
     Description: Unique identifier.
-    Type: Strings
+    Type: String
 
 Resources:
   InstanceSecurityGroup:
