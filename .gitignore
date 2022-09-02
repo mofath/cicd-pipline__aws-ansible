@@ -68,3 +68,7 @@ node_modules
 
 .env
 dist
+
+udacity.pem
+prometheus-server.pem
+set_env.sh
