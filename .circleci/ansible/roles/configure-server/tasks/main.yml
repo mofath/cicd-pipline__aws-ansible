@@ -1,35 +1,22 @@
 ---
-  - name: "update apt packages."
-    become: true
-    apt:
-      update_cache: yes
+- name: "Install Node.js"
+  shell: |
+    # Install Node.js LTS as as our base Node.js version
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+    sudo apt install -y nodejs
+    
+    # Install "n" Node Package Manager globally and use Node.js v13.8.0
+    sudo npm install --global n
+    sudo n 13.8.0
 
-  - name: "upgrade packages"
-    become: true
-    apt:
-      upgrade: yes
+- name: "Install pm2"
+  become: true
+  npm:
+    name: pm2
+    global: yes
 
-  - name: "remove dependencies that are no longer required"
-    become: true
-    apt:
-      autoremove: yes
-
-  - name: "Add nodejs from NodeSource"
-    become: true
-    shell: |
-      curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-      sudo apt-get install -y nodejs
-      sudo npm install -g n
-      sudo n 13.8.0
-
-  - name: "install pm2"
-    become: true
-    npm:
-      name: pm2
-      global: yes
-
-  - name: "Check versions"
-    shell: | 
-      node --version
-      npm -v
-      pm2 -V
+- name: "Check versions"
+  shell: | 
+    node --version
+    npm -v
+    pm2 -V

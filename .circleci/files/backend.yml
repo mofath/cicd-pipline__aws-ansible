@@ -4,7 +4,7 @@ Description: >
 Parameters:
   ID:
     Description: Unique identifier.
-    Type: String
+    Type: String 
 
 Resources:
   InstanceSecurityGroup:
@@ -28,8 +28,16 @@ Resources:
       InstanceType: t2.micro
       SecurityGroups:
         - Ref: InstanceSecurityGroup
-      KeyName: udacity 
+      KeyName: udacity
       ImageId: ami-052efd3df9dad4825
       Tags:
         - Key: Name
           Value: !Sub backend-${ID}
+        - Key: Project
+          Value: Udapeople
+  
+  InstanceEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      InstanceId: !Ref EC2Instance
