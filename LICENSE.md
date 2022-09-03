@@ -5,7 +5,7 @@ Udacity hereby grants you a license in and to the Educational Content, including
 Udacity expressly defines the following as falling outside the definition of "non-commercial":
 (a) the sale or rental of (i) any part of the Educational Content, (ii) any derivative works based at least in part on the Educational Content, or (iii) any collective work that includes any part of the Educational Content;
 (b) the sale of access or a link to any part of the Educational Content without first obtaining informed consent from the buyer (that the buyer is aware that the Educational Content, or such part thereof, is available at the Website free of charge);
-(c) providing training, support, or editorial services that use or reference the Educational Content in exchange for a fee;
+(c) providing training, support, or editorial services that use or reference the Educational Content in exchange for a fee; 
 (d) the sale of advertisements, sponsorships, or promotions placed on the Educational Content, or any part thereof, or the sale of advertisements, sponsorships, or promotions on any website or blog containing any part of the Educational Material, including without limitation any "pop-up advertisements";
 (e) the use of Educational Content by a college, university, school, or other educational institution for instruction where tuition is charged; and
 (f) the use of Educational Content by a for-profit corporation or non-profit entity for internal professional development or training.
