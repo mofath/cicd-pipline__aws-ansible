@@ -22,6 +22,34 @@
         name: python3
         update_cache: yes
 
+  # Get the environment variables from CircleCI and add to the EC2 instance
+  environment:
+    NODE_ENV: production
+    TYPEORM_CONNECTION: "{{ lookup('env', 'TYPEORM_CONNECTION') }}"
+    TYPEORM_HOST: "{{ lookup('env', 'TYPEORM_HOST') }}"
+    TYPEORM_PORT: "{{ lookup('env', 'TYPEORM_PORT') }}"
+    TYPEORM_USERNAME: "{{ lookup('env', 'TYPEORM_USERNAME') }}"
+    TYPEORM_PASSWORD: "{{ lookup('env', 'TYPEORM_PASSWORD') }}"
+    TYPEORM_DATABASE: "{{ lookup('env', 'TYPEORM_DATABASE') }}"
+    TYPEORM_ENTITIES: "{{ lookup('env', 'TYPEORM_ENTITIES') }}"
+    TYPEORM_MIGRATIONS: "{{ lookup('env', 'TYPEORM_MIGRATIONS') }}"
+    TYPEORM_MIGRATIONS_DIR: "{{ lookup('env', 'TYPEORM_MIGRATIONS_DIR') }}"
+
+  tasks:
+    - name: persist environment variables
+      become: true
+      shell: |
+        echo NODE_ENV=\"production\" >> /etc/environment
+        echo TYPEORM_CONNECTION=\"$TYPEORM_CONNECTION\" >> /etc/environment
+        echo TYPEORM_HOST=\"$TYPEORM_HOST\" >> /etc/environment
+        echo TYPEORM_PORT=\"$TYPEORM_PORT\" >> /etc/environment
+        echo TYPEORM_USERNAME=\"$TYPEORM_USERNAME\" >> /etc/environment
+        echo TYPEORM_PASSWORD=\"$TYPEORM_PASSWORD\" >> /etc/environment
+        echo TYPEORM_DATABASE=\"$TYPEORM_DATABASE\" >> /etc/environment
+        echo TYPEORM_ENTITIES=\"$TYPEORM_ENTITIES\" >> /etc/environment
+        echo TYPEORM_MIGRATIONS=\"$TYPEORM_MIGRATIONS\" >> /etc/environment
+        echo TYPEORM_MIGRATIONS_DIR=\"$TYPEORM_MIGRATIONS_DIR\" >> /etc/environment
+
   roles:
     - configure-server
     - configure-prometheus-node-exporter
