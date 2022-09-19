@@ -1,5 +1,5 @@
 https://github.com/mofath/cicd-pipline__aws-ansible
-http://udapeople-ce3c680.s3-website-us-east-1.amazonaws.com/
-http://d1syfqcz224b3z.cloudfront.net/
-http://ec2-52-45-248-40.compute-1.amazonaws.com:3030/api/status
+http://udapeople-a9cd1e4.s3-website-us-east-1.amazonaws.com/
+http://d1syfqcz224b3z.cloudfront.net
+http://ec2-3-214-241-61.compute-1.amazonaws.com:3030/api/status
 http://ec2-50-16-105-102.compute-1.amazonaws.com:9090/targets
